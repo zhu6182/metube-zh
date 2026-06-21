@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  metube-zh:
+    build: .
+    container_name: metube-zh
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./downloads:/downloads
+    environment:
+      - TZ=Asia/Shanghai
+      - DEFAULT_THEME=dark

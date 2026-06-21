@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: metube-zh
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: TZ
+        value: Asia/Shanghai
+      - key: DEFAULT_THEME
+        value: dark
+    disk:
+      name: downloads
+      mountPath: /downloads
+      sizeGB: 10
+    ports:
+      - port: 8081
+        protocol: http
